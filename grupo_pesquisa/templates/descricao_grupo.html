@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <style>
+        .grupo-description {
+            max-width: 800px; 
+            margin: 0 auto; 
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px; 
+        }
+
+        .grupo-description h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .grupo-description p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+
+    <section>
+        <h2>Descrição do Grupo</h2>
+        {% for grupo_pesquisa in grupos_pesquisa %}
+        <div class="grupo-description">
+            <h3>{{ grupo_pesquisa.nome }}</h3>
+            <p>{{ grupo_pesquisa.descricao }}</p>
+        </div>
+        {% endfor %}
+    </section>
+{% endblock %}
+

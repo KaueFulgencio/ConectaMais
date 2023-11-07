@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        .integrante-form {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom:100%;
+        }
+        
+        .integrante-form h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .integrante-form form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .integrante-form button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .integrante-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .back-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+
+    <div class="integrante-form">
+        <h2>Adicionar Integrante</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Adicionar Integrante</button>
+        </form>
+        <p class="back-link">
+            <a href="{% url 'lista_integrantes' %}">Voltar para a lista de integrantes</a>
+        </p>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Adicionar Foto do Integrante</title>
+    </head>
+    <body>
+        <h2>Adicionar Foto do Integrante - {{ integrante.nome }}</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="foto">Foto do Integrante:</label>
+            <input type="file" name="foto" id="foto" accept="image/*">
+            <br>
+            <input type="submit" value="Enviar Foto">
+        </form>
+    </body>'
+
+{% endblock %}
